@@ -1,5 +1,7 @@
 import BookCard from "@/Components/BookCard";
 import { useGetBooksQuery } from "@/Redux/api/apiSlice";
+import { IBook } from "@/Types/globalTypes";
+
 import { Link } from "react-router-dom";
 
 export default function Books() {
@@ -11,7 +13,7 @@ export default function Books() {
   //       .then((data) => setData(data.data));
   //   }, []);
 
-  const { data, isLoading, error } = useGetBooksQuery(undefined);
+  const { data } = useGetBooksQuery(undefined);
 
   return (
     <>
@@ -20,8 +22,8 @@ export default function Books() {
       </div>
       <div className="grid grid-cols-12 max-w-7xl mx-auto  ">
         <div className="col-span-12 grid md:grid-cols-4 sm:grid-cols-2  gap-10 pb-20 ">
-          {data?.data?.map((book) => (
-            <BookCard book={book} key={book!} />
+          {data?.data?.map((book: IBook) => (
+            <BookCard book={book} />
           ))}
         </div>
       </div>

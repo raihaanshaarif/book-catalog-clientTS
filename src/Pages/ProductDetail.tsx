@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const ProductDetail = () => {
   const { id } = useParams();
 
-  const { data, isLoading, error } = useGetSingleBooksQuery(id);
+  const { data } = useGetSingleBooksQuery(id);
   //   console.log(data);
   const currentBook = data?.data;
 
