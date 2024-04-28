@@ -1,6 +1,10 @@
-import { useGetSingleBooksQuery } from "@/Redux/api/apiSlice";
+
+import CommentCard from "@/Components/CommentCard";
+import { useGetSingleBooksQuery } from "@/Redux/books/bookApi";
 
 import { useParams } from "react-router-dom";
+
+
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -9,7 +13,10 @@ const ProductDetail = () => {
   //   console.log(data);
   const currentBook = data?.data;
 
-  //! Temporary code ends here
+
+
+ 
+
 
   return (
     <div>
@@ -29,8 +36,15 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <div>
+        <CommentCard id={id!} />
+      </div>
+
+      
     </div>
   );
 };
+
+
 
 export default ProductDetail;
